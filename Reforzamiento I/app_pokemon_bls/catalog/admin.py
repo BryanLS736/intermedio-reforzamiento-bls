@@ -3,4 +3,6 @@ from django.contrib import admin
 from catalog.models import Catalogo
 # Register your models here.
 
-admin.site.register(Catalogo)
+@admin.register(Catalogo)
+class CatalogoAdmin(admin.ModelAdmin):
+    pass

@@ -1,0 +1,43 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+    <label>Búsqueda de owner</label>
+
+    <div>
+        <form action="" method='get' style="width: 550px">
+
+             <input class="form-control" type="text" name="q" placeholder="Ingrese un nombre o pais" value="{{ query | escape }}">
+
+        </form>
+    </div>
+
+    {% if query%}
+        {% if data %}
+            <ul>
+                {% for owner in data %}
+
+                    {% if owner.vigencia %}
+                        <li>{{ owner.nombre }} es de {{ owner.pais }} y actualmente tiene {{ owner.edad }} años y su identificación está vigente.</li>
+
+                    {% else %}
+                        <li>{{ owner.nombre }} es de {{ owner.pais }} y actualmente tiene {{ owner.edad }} años y su identificación no está vigente.</li>
+
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <p>No hubo ninguna coincidencia de búsqueda!</p>
+
+        {% endif %}
+
+    {% else %}
+        <p>Ustes no escribió nada en el buscador. Porfavor escriba un nombre o país.</p>
+
+    {% endif %}
+
+    <p>Owners de Perú: {{ owner_peru }}</p>
+    <p>Owners de Argentina: {{ owner_argentina }}</p>
+
+{% endblock %}

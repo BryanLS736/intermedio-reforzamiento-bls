@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+    <h3>Pokemones tipo fuego:</h3>
+
+    {% for pokemon in data %}
+        <p>{{ pokemon.nombre }}</p>
+    {% endfor %}
+
+{% endblock %}

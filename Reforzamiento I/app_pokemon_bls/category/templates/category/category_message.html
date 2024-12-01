@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+    <h3>¡¡Hola Pythonista, el App Category está funcionando correctamente!!</h3>
+
+    {% if data.edad >= 18 %}
+        <p>{{ data.nombre_owner }} es mayor de edad.</p>
+    {% else %}
+        <p>{{ data.nombre_owner }} es menor de edad.</p>
+    {% endif %}
+
+{% endblock %}
