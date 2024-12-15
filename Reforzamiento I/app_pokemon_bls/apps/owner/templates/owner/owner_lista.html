@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h3>Lista de owner</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Número de orden</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Pais</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for owner in data %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td><p>{{ owner.nombre }}</p></td>
+                    <td><p>{{ owner.edad }}</p></td>
+                    <td><p>{{ owner.pais }}</p></td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'owner_editar' owner.id %}" role="button">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'owner_eliminar' owner.id %}" role="button">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}

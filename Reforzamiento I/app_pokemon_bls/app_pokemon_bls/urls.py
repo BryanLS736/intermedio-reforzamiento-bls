@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_simplejwt import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pokemon/', include('pokemon.urls')),
-    path('owner/', include('owner.urls')),
-    path('category/', include('category.urls')),
-    path('catalog/', include('catalog.urls')),
+    path('pokemon/', include('apps.pokemon.urls')),
+    path('owner/', include('apps.owner.urls')),
+    path('category/', include('apps.category.urls')),
+    path('catalog/', include('apps.catalog.urls')),
+    path('api/token', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh', views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
